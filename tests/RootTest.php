@@ -21,10 +21,9 @@ class RootTest extends TestCase
     public function rootGet() {
 		global $servername;
 		
-		$urlTest = 'http://localhost/github/datosjson?github=yes';
+		//$urlTest = 'http://localhost/github/datosjson?github=yes';
+		$urlTest = 'http://localhost/github/datos.txt';
 		//$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
-		
-		echo getenv('HOST');
 		
         //url contra la que atacamos
         $ch = curl_init($urlTest);
@@ -40,8 +39,9 @@ class RootTest extends TestCase
 		echo "\n\nJSON obtenido con el GET de ".$urlTest."\n";
 		echo $response;
 
-		$data = json_decode($response, true);
-		$this->assertSame($data['params']['github'], 'yes');
+		//$data = json_decode($response, true);
+		//$this->assertSame($data['params']['github'], 'yes');
+		$this->assertSame($response, 'Hola');
 		
     } 
 

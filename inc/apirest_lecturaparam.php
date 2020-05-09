@@ -2,7 +2,10 @@
 
     // ****************************************************************
 	// Método: GET, POST, PUT, DELETE
-	$method = $_SERVER['REQUEST_METHOD'];
+	$method = "GET";
+	if (isset($_SERVER['REQUEST_METHOD'])) {
+		$method = $_SERVER['REQUEST_METHOD'];
+	}
 
     // ****************************************************************
     // QUERY: el resto de la URL que utilizamos como parámetros
