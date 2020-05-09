@@ -1,7 +1,8 @@
 <?php
 require_once "apirest_variables.php";
+use PHPUnit\Framework\TestCase;
 
-class RootTest extends PHPUnit_Framework_TestCase
+class RootTest extends TestCase
 {
     protected $tablasValidas;
 
