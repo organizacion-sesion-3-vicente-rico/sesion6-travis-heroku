@@ -6,6 +6,8 @@ services:
 before_script:
 - composer install
 - sudo apt-get install apache2
+- sudo apt-get install libapache2-mod-php
+- sudo service apache2 restart
 - netstat -at
 - sudo cp -r -a ./* /var/www/html
 script: "./vendor/bin/phpunit ./tests"

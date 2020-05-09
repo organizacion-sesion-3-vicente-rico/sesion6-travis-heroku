@@ -24,7 +24,7 @@ class RootTest extends TestCase
 		
 		
 		//$urlTest = 'http://localhost/github/datosjson?github=yes';
-		$urlTest = 'http://localhost/datos.txt';
+		$urlTest = 'http://localhost/datos.php';
 		//$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
 		
         //url contra la que atacamos
