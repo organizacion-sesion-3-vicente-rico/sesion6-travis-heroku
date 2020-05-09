@@ -2,11 +2,6 @@
 session_start();
 
 require_once "apirest_variables.php";
-require_once "inc/apirest_lecturaparam.php";
-
-require_once "inc/apirest_metodos.php";
-require_once "inc/apirest_funciones.php";
-require_once "inc/apirest_mysql.php";
 
 class RootTest extends PHPUnit_Framework_TestCase
 {
