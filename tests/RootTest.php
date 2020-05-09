@@ -31,7 +31,7 @@ class RootTest extends TestCase
 		if ($servername=="localhost") {
 			$urlTest = 'http://'.$servername.'/github/empleados/count';
 		} else {
-			$urlTest = 'http://'.$servername.'/empleados/count';
+			$urlTest = '/empleados/count';
 		}
 		
         //url contra la que atacamos
