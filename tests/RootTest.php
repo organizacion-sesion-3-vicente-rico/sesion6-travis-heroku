@@ -24,6 +24,8 @@ class RootTest extends TestCase
 		//$urlTest = '/empleados/count';
 		$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
 		
+		echo getenv('HOST');
+		
         //url contra la que atacamos
         $ch = curl_init($urlTest);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -37,6 +39,8 @@ class RootTest extends TestCase
 		
 		echo "\n\nJSON obtenido con el GET de ".$urlTest."\n";
 		echo $response;
+
+		echo "\nHOST: ".getenv('HOST')."\n";
 		
 		$data = json_decode($response, true);
 		$this->assertSame($data['total_registros'], '37');
