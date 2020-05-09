@@ -20,33 +20,36 @@ class RootTest extends TestCase
     /** @test */
     public function rootGet() {
 		
-		global $servername;
-		
-		
-		//$urlTest = 'http://localhost/github/datosjson?github=yes';
-		$urlTest = 'http://localhost/datos.php';
-		//$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
-		
-        //url contra la que atacamos
-        $ch = curl_init($urlTest);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-
-        //obtenemos la respuesta
-        $response = curl_exec($ch);
- 
-		// Se cierra el recurso CURL y se liberan los recursos del sistema
+		// TEST 1
+		$urlTest1 = 'http://localhost/datosjson?github=yes';
+        $ch = curl_init($urlTest1);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			$response1 = curl_exec($ch);
         curl_close($ch);
 		
-		echo "\n\nJSON obtenido con el GET de ".$urlTest."\n";
-		echo $response;
+		echo "\n\nJSON obtenido con el GET de ".$urlTest1."\n";
+		echo $response1;
+		$data1 = json_decode($response1, true);
 
-		//$data = json_decode($response, true);
-		//$this->assertSame($data['params']['github'], 'yes');
+		// TEST 2
+		$urlTest3 = 'http://localhost/empleados/count';
+        $ch = curl_init($urlTest1);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+			$response1 = curl_exec($ch);
+        curl_close($ch);
 		
-		
-		
+		echo "\n\nJSON obtenido con el GET de ".$urlTest2."\n";
+		echo $response1;
+		$data2 = json_decode($response2, true);
+
+
 		$this->assertSame(count($GLOBALS['tablas']), 1);
+
+		$this->assertSame($data1['params']['github'], 'yes');
+		
+		$this->assertSame($data2['total_registros'], '7');
 		
     } 
 
