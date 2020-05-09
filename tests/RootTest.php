@@ -1,6 +1,4 @@
 <?php
-session_start();
-
 require_once "apirest_variables.php";
 
 class RootTest extends PHPUnit_Framework_TestCase
