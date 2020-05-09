@@ -1,6 +1,7 @@
 <?php
-require_once "apirest_variables.php";
 use PHPUnit\Framework\TestCase;
+
+require_once "apirest_variables.php";
 
 class RootTest extends TestCase
 {
