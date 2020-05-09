@@ -26,7 +26,7 @@ class RootTest extends PHPUnit_Framework_TestCase
     public function rootGet() {
 		global $servername;
 		
-		$urlTest = 'http://'.$servername.'/github/empleados/count';
+		$urlTest = 'http://'.$servername.'/empleados/count';
 		
         //url contra la que atacamos
         $ch = curl_init($urlTest);
