@@ -22,7 +22,7 @@ class RootTest extends TestCase
 		global $servername;
 		
 		//$urlTest = 'http://localhost/github/datosjson?github=yes';
-		$urlTest = 'http://localhost/github/datos.txt';
+		$urlTest = 'http://localhost/datos.txt';
 		//$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
 		
         //url contra la que atacamos
