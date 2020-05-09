@@ -7,7 +7,7 @@ before_script:
 - composer install
 - sudo apt-get install apache2
 - netstat -at
-- cp -r -a ./* /var/www/html
+- sudo cp -r -a ./* /var/www/html
 script: "./vendor/bin/phpunit ./tests"
 deploy:
   provider: heroku
