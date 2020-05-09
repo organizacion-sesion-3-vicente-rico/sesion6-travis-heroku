@@ -1,14 +1,15 @@
 language: php
 php:
-  - 7.2
+- 7.2
 services:
-  - mysql
+- mysql
 before_script:
-  - composer install
-script: ./vendor/bin/phpunit ./tests
+- composer install
+script: "./vendor/bin/phpunit ./tests"
 deploy:
   provider: heroku
   app: apirestgithub
   on: master
   skip_cleanup: true
-
+  api_key:
+    secure: VabKvg5mIAXam1epEffoupcnzUD+fC4ypBDjOajVKjmYV1DK+EWEalxikFrM+I1c+I6pvaN7tA2s9FfjT4mRbi72SSVvjKmzrtI9Tdc+oUk/9YRd2D8nhcMfB6atDlUPY9/yamgZul2fy9N8UMelwuZS5ubHwj2Jk4t0WVxgJpVadieS2ve7bXhhncBzWxriJnsyfi/JvdISwtmjZuD3kpOg65S9uOz3x4RSJmfHZCVrZBTRVv1qkrVr46/a9U3cXU97RqsAqGHDJrLIwX85r7p+WX8kfZyL9BQ+pWb/0o3/OpArAQ6ielisWWCk0ZLUEfoUlSIB4OLeHFMzPffMLIJZNJV5rZZAiN4MlynVWduX2fY0sAwErx01z47MiJgK4tLB1bmoWfh0eVPqPtJBVJUES4VTiIcBiv/zpEkYxeuDh8PF7Np3XwKEo+r21UqQXFrTihoiCWtVMyN7HXnTPQWPGtyR3nY1/ngBHXXlDxn7A1wtT54UavlfJkwpE8ItTbV+g9TA6XhV5yBbWWd5yrLZnVKPmMgH0G3xEZWCUygeSB5rFdh3AOmY+/Ipli+134vXXv9Qot3dwR5yIGKwo/ZFfIHQAP6oow3KWiggm1pMGBxMe/Mf4T0ADX8XbkvL8D6BVGiJv9IXslHI/BvOywHH6OifLzGUpdDWFmalYBc=
