@@ -5,7 +5,7 @@ services:
 - mysql
 before_script:
 - composer install
-- netstat -at
+- sudo apt-get install apache2
 script: "./vendor/bin/phpunit ./tests"
 deploy:
   provider: heroku
