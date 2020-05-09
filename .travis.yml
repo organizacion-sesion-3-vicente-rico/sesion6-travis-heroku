@@ -15,6 +15,7 @@ before_script:
 - ls -la
 - mysql -h 127.0.0.1 -u root < bdgithub.sql
 - mysql -h 127.0.0.1 -u root bdgithub -e "select * from empleados;"
+- wget http://localhost/index.php?action=empleados&value=count
 script: "./vendor/bin/phpunit ./tests"
 deploy:
   provider: heroku
