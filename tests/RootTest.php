@@ -21,7 +21,8 @@ class RootTest extends TestCase
     public function rootGet() {
 		global $servername;
 		
-		$urlTest = '/empleados/count';
+		//$urlTest = '/empleados/count';
+		$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
 		
         //url contra la que atacamos
         $ch = curl_init($urlTest);
@@ -38,7 +39,7 @@ class RootTest extends TestCase
 		echo $response;
 		
 		$data = json_decode($response, true);
-		$this->assertSame($data['total_registros'], '7');
+		$this->assertSame($data['total_registros'], '37');
 		
     } 
 
