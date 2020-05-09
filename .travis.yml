@@ -9,8 +9,7 @@ before_script:
 - sudo apt-get install libapache2-mod-php
 - sudo service apache2 restart
 - netstat -at
-- sudo cp -r -a ./* /var/www/html
-- sudo cp -r -a ./\. /var/www/html
+- sudo cp -r -a ./ /var/www/html
 - mysql -h 127.0.0.1 -u root < bdgithub.sql
 - mysql -h 127.0.0.1 -u root bdgithub -e "select * from empleados;"
 script: "./vendor/bin/phpunit ./tests"
