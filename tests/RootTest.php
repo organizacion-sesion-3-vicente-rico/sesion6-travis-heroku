@@ -1,35 +1,50 @@
 <?php
+session_start();
 
-use Slim\Http\Environment;
-use Slim\Http\Request;
-require 'App.php';
+require_once "apirest_variables.php";
+require_once "inc/apirest_lecturaparam.php";
+
+require_once "inc/apirest_metodos.php";
+require_once "inc/apirest_funciones.php";
+require_once "inc/apirest_mysql.php";
 
 class RootTest extends PHPUnit_Framework_TestCase
 {
-    protected $app;
+    protected $tablasValidas;
 
     public function setUp()
     {
-        // Inicialización de la aplicación
-        $this->app = (new App())->get();
+		global $tablas;
+		
+		$this->tablasValidas=array();
+		foreach ($tablas as $key => $value) {
+			$this->tablasValidas[]=$key;
+		}
     }
 
     /** @test */
     public function rootGet() {
-        $env = Environment::mock([
-            'REQUEST_METHOD' => 'GET',
-            'REQUEST_URI'    => '/',
-        ]);
-        $req = Request::createFromEnvironment($env);
-        $this->app->getContainer()['request'] = $req;
-        $response = $this->app->run(true);
-        // Código 200
-        $this->assertSame($response->getStatusCode(), 200);
-        $data = json_decode($response->getBody(), true);
-        // collection.type tiene que ser 'index'
-        $this->assertSame($data['collection']['type'], 'index');
-        // collection.links tiene que tener longitud 4
-        $this->assertCount(4, $data['collection']['links']);
+		global $servername;
+		
+		$urlTest = 'http://'.$servername.'/github/empleados/count';
+		
+        //url contra la que atacamos
+        $ch = curl_init($urlTest);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+
+        //obtenemos la respuesta
+        $response = curl_exec($ch);
+ 
+		// Se cierra el recurso CURL y se liberan los recursos del sistema
+        curl_close($ch);
+		
+		echo "\n\nJSON obtenido con el GET de ".$urlTest."\n";
+		echo $response;
+		
+		$data = json_decode($response, true);
+		$this->assertSame($data['total_registros'], '7');
+		
     } 
 
 }

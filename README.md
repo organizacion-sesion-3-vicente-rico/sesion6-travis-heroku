@@ -1,10 +1,7 @@
-# API Collection + JSON para biblioteca multimedia
+# API Rest en PHP de Vicente Rico
 
-API CRUD para interactuar con una base de datos de una biblioteca multimedia. Utiliza el formato [Collection + JSON](http://amundsen.com/media-types/collection/).
-
-## Acceso en servidor local de desarrollo
 - Instalar XAMPP y copiar el repositorio a la carpeta `htdocs`
-- Cargar en el servidor MySQL el archivo `biblioteca.sql` con la estructura de la base de datos
+- Cargar en el servidor MySQL el archivo `bdgithub.sql` con la estructura de la base de datos
 - Instalar dependencias con composer
 ``` bash
 composer install
