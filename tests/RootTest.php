@@ -21,8 +21,8 @@ class RootTest extends TestCase
     public function rootGet() {
 		global $servername;
 		
-		//$urlTest = '/empleados/count';
-		$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
+		$urlTest = 'http://localhost/github/datosjson?github=yes';
+		//$urlTest = 'http://www.riconet.es/fp/apirest/libros/count';
 		
 		echo getenv('HOST');
 		
@@ -40,10 +40,8 @@ class RootTest extends TestCase
 		echo "\n\nJSON obtenido con el GET de ".$urlTest."\n";
 		echo $response;
 
-		echo "\nHOST: ".getenv('HOST')."\n";
-		
 		$data = json_decode($response, true);
-		$this->assertSame($data['total_registros'], '37');
+		$this->assertSame($data['params']['github'], 'yes');
 		
     } 
 

@@ -12,13 +12,16 @@
 		global $params;
 		
 		if (isset($params['action'])) {
-			if ( ($params['action']=="datos") || (in_array($params['action'], $GLOBALS['tablasValidas']))) {
+			if ( ($params['action']=="datos") || ($params['action']=="datosjson") || (in_array($params['action'], $GLOBALS['tablasValidas']))) {
 				switch ($params['action']) {
 					case 'manual':
 						mostrarManual();
 						break;
 					case 'datos':
 						mostrarDatos();
+						break;
+					case 'datosjson':
+						mostrarParamsJSON();
 						break;
 					default:
 						if (isset($params['value'])) {

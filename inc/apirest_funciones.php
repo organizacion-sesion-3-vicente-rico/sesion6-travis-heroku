@@ -25,7 +25,7 @@
 			$iniciado=false;
 			foreach ($params as $key => $value) {
 				if ($iniciado) {
-					echo ',"';
+					echo ',';
 					echo "\n";
 				} else {
 					$iniciado=true;
