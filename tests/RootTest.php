@@ -21,7 +21,7 @@ class RootTest extends TestCase
     public function rootGet() {
 		
 		// TEST 1
-		$urlTest1 = 'http://localhost/datosjson?github=yes';
+		$urlTest1 = 'http://localhost/index.php?action=datosjson&github=yes';
         $ch = curl_init($urlTest1);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
@@ -33,7 +33,7 @@ class RootTest extends TestCase
 		$data1 = json_decode($response1, true);
 
 		// TEST 2
-		$urlTest2 = 'http://localhost/empleados/count';
+		$urlTest2 = 'http://localhost/index.php?action=empleados&value=count';
         $ch = curl_init($urlTest2);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 			curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
