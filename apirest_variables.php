@@ -6,8 +6,6 @@ if ($os) {
 	$url = parse_url($os);
 }
 
-echo "OS:".$os."\n";
-
 // CONFIGURACIÓN BASE DE DATOS MYSQL
 $servername = $os ? $url["host"] : 'localhost';
 $username = $os ? $url["user"] : 'root';

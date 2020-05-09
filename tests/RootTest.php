@@ -21,6 +21,13 @@ class RootTest extends TestCase
     public function rootGet() {
 		global $servername;
 		
+		$os = getenv('CLEARDB_DATABASE_URL');
+		if ($os) {
+			$url = parse_url($os);
+		}
+		$servername = $os ? $url["host"] : 'localhost';
+
+		
 		if ($servername=="localhost") {
 			$urlTest = 'http://'.$servername.'/github/empleados/count';
 		} else {
