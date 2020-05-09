@@ -60,7 +60,7 @@ class RootTest extends TestCase
 
 		$this->assertSame($data1['params']['github'], 'yes');
 		
-		$this->assertSame($numregistros, 7);
+		$this->assertSame($numregistros, '7');
 		
     } 
 
